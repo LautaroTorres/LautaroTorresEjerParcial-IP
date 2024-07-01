@@ -40,4 +40,40 @@ public class Main {
         }
         scanner.close();
     }
-		
+
+	//Metodo de calculos del programa
+		private static void jugar(Scanner scanner) {
+	        Random random = new Random();
+	        int numeroAleatorio = random.nextInt(100) + 1; // Genera un número entre 1 y 100
+	        int intentosMaximos = 10;
+	        int intentos = 0;
+	        boolean adivinado = false;
+	        
+	        System.out.println("He generado un número entre 1 y 100. ¡Intenta adivinarlo!");
+	        System.out.println("Tienes " + intentosMaximos + " intentos.");
+	        
+	        while (intentos < intentosMaximos && !adivinado) { //Guia al usuario con el numero
+	            System.out.print("Introduce tu intento: ");
+	            try {
+	                int intento = scanner.nextInt();
+	                intentos++;
+
+	                if (intento < numeroAleatorio) {
+	                    System.out.println("Demasiado bajo.");
+	                } else if (intento > numeroAleatorio) {
+	                    System.out.println("Demasiado alto.");
+	                } else { //Intento correcto
+	                    adivinado = true;
+	                    System.out.println("¡Correcto! Has adivinado el número en " + intentos + " intentos.");
+	                }
+	            } catch (InputMismatchException e) {
+	                System.out.println("Entrada no válida. Por favor, ingresa un número.");
+	                scanner.next(); // Limpiar el buffer del scanner
+	            }
+	        }
+
+	        if (!adivinado) { //Intentos maximos
+	            System.out.println("Lo siento, has agotado tus intentos. El número era " + numeroAleatorio + ".");
+	        }
+	    }
+	}
