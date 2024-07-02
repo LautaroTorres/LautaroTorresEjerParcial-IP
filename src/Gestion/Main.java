@@ -14,11 +14,17 @@ public class Main {
 		boolean salir = false;
 		
 		//Bucle que interactua con el usuario
+	
 		while (!salir) {
-            System.out.println("Bienvenido al juego de adivinar el número.");
+			System.out.println("===============================================");
+            System.out.println("| Bienvenido al juego de adivinar el número |");
+            System.out.println("=================================");
             System.out.println("1. Jugar");
             System.out.println("2. Salir");
-            System.out.print("Elige una opción: ");
+            System.out.println("=================================");
+            System.out.println("Elige una opción: ");
+            System.out.println("===============================================");
+           
             try {
                 int opcion = scanner.nextInt();
 
@@ -77,3 +83,5 @@ public class Main {
 	        }
 	    }
 	}
+
+		
